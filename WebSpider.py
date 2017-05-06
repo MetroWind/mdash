@@ -7,9 +7,6 @@ import lxml.etree
 
 import InfoSource
 
-# "https://egov.uscis.gov/casestatus/mycasestatus.do"
-# appReceiptNum
-
 def xpathClassStr(class_name):
     return "contains(concat(' ', normalize-space(@class), ' '), ' {} ')".format(class_name)
 
@@ -22,11 +19,6 @@ class ResponseSpider(InfoSource.InfoSource):
         self.RequestData = dict()
         self.XPath = ""
         self.Name = "Spider"
-        # self.Headers = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X "
-        #                 "10.12; rv:10.0) Gecko/20100101 Firefox/10.0",
-        #                 "Referer": "https://egov.uscis.gov/casestatus/landing.do",
-        #                 "Origin": "https://egov.uscis.gov"
-        # }
         self.Headers = dict()
 
     def _get_response(self):
