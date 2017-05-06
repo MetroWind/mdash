@@ -1,0 +1,60 @@
+Widgets:
+  - rows:
+    - columns:
+      - list:
+          Name: Boring stuff
+          Widgets:
+            - text:
+                InfoSource:
+                  ResponseSpider:
+                    EntryPoint: "https://bugzilla.example.com/buglist.cgi?blablabla"
+                    XPath: "//span[@class='bz_result_count']/text()"
+                    Name: Bugzilla
+
+      - list:
+          Name: Server status
+          Widgets:
+            - text:
+                InfoSource:
+                  SocketPinger:
+                    Name: Darksair.org web
+                    IP: xx.xx.xx.xx
+                    Port: 80
+                    StatusStr:
+                      - UP
+                      - DOWN
+            - text:
+                InfoSource:
+                  SocketPinger:
+                    Name: Terraria server
+                    IP: xx.xx.xx.xx
+                    Port: 7777
+            - text:
+                InfoSource:
+                  SocketPinger:
+                    Name: PPTP server
+                    IP: xx.xx.xx.xx
+                    Port: 1723
+
+      - list:
+          Name: Apps
+          Widgets:
+            - text:
+                InfoSource:
+                  AppStorePrice:
+                    AppID: 336477530
+                    Name: Plane Finder
+            - text:
+                InfoSource:
+                  AppStorePrice:
+                    AppID: 425073498
+                    Name: Procreate
+            - text:
+                InfoSource:
+                  AppStorePrice:
+                    AppID: 934510730
+                    Name: Astropad
+
+    - big_text:
+        Text: NB Dashboard
+        Font: small

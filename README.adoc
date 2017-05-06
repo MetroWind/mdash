@@ -1,0 +1,54 @@
+MDash
+=====
+
+A simple customisable text dashboard that doesn’t update
+automatically.
+
+## Usage ##
+
+Make sure you have http://python-requests.org/[requests],
+http://urwid.org/[urwid], http://www.pyyaml.org/[PyYAML], and
+http://www.figlet.org/[figlet] installed.  Run `Dashboard.py`.  A
+`widgets.yaml` must exist in the current dir.
+
+## Configuration ##
+
+The content and layout in the dashboard is controlled by
+widgets.yaml.  This YAML file starts with a single root node
+`Widgets`.  The dashboard is splited evenly into columns and rows by
+writing `columns` and `rows` as list of dictionaries under the
+`Widgets` node, and they can be nested arbitrarily.  For example the
+following configuration
+
+----
+Widgets:
+  - rows:
+    - columns:
+      - # some content
+      - # some other content
+    - # some content at the bottom
+----    
+
+produces this layout:
+
+----
++-----+-----+
+|     |     |
++-----+-----+
+|           |
++-----------+
+----
+
+The “content” part can be three things:
+
+- A `text` node, which produces a box with some stuff inside.  What’s
+inside depends on the `InfoSource` node underneath.
+- A `list` node, which contains a `Name` node (a string), and a
+`Widgets` node which contains a bunch of `text` nodes.  This also
+produces a box.  The `text` nodes inside do not come with boxes.
+- A `big_text` node, which calls http://www.figlet.org/[figlet].  This
+doesn’t come with a box.
+
+I’m too lazy to write more details.  Take a look at
+`widgets-example.yaml` in the repo.  It produces the following
+dashboard:
