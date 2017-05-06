@@ -52,3 +52,5 @@ doesn’t come with a box.
 I’m too lazy to write more details.  Take a look at
 `widgets-example.yaml` in the repo.  It produces the following
 dashboard:
+
+image::https://github.com/MetroWind/mdash/raw/master/screenshot.png[Screenshot]
